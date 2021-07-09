@@ -1,10 +1,13 @@
 <?php
 
 require_once __DIR__ . '/EasyQueue.php';
+require_once __DIR__ . '/AdvancedQueue.php';
 
 use Queue\EasyQueue;
+use Queue\AdvancedQueue;
 
 $array = new EasyQueue();
+//$array = new AdvancedQueue();
 
 $array->queue(4);
 $array->queue(2);

@@ -7,16 +7,16 @@ require_once __DIR__ . '/QueueInterface.php';
 
 class EasyQueue implements QueueInterface
 {
-    public array $queue;
+    public array $fifo;
 
     public function __construct()
     {
-        $this->queue = array();
+        $this->fifo = array();
     }
 
     public function queue(int $value): void
     {
-        array_push($this->queue, $value);
+        array_push($this->fifo, $value);
     }
 
     /**
@@ -29,11 +29,11 @@ class EasyQueue implements QueueInterface
             throw new \Exception('The array is empty');
         }
 
-        array_shift($this->queue);
+        array_shift($this->fifo);
     }
 
     public function isEmpty(): bool
     {
-        return empty($this->queue);
+        return empty($this->fifo);
     }
 }
