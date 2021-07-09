@@ -1,20 +1,17 @@
 <?php
 
 
-namespace EasyStack\Stack;
+namespace Stack;
 
-require_once 'StackInterface.php';
+require_once __DIR__ . '/StackInterface.php';
 
-use EasyStack\StackInterface\StackInterface;
-use Exception;
-
-class Stack implements StackInterface
+class EasyStack implements StackInterface
 {
     public array $stack;
 
     public function __construct()
     {
-        $this->stack = [];
+        $this->stack = array();
     }
 
     public function push(...$values): void
@@ -25,17 +22,18 @@ class Stack implements StackInterface
     }
 
     /**
-     * @throws Exception
+     * @throws \Exception
      */
     public function pop()
     {
         if ($this->isEmpty())
         {
-            throw new Exception('The stack is empty.');
+            throw new \Exception('The stack is empty.');
         }
 
         return array_pop($this->stack);
     }
+
     public function isEmpty(): bool
     {
         return empty($this->stack);

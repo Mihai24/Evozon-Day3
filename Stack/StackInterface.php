@@ -1,7 +1,7 @@
 <?php
 
 
-namespace EasyStack\StackInterface;
+namespace Stack;
 
 
 interface StackInterface
