@@ -7,20 +7,30 @@ require_once __DIR__ . '/SetInterface.php';
 
 class EasySet implements SetInterface
 {
-    public array $set;
+    private array $set;
 
     public function __construct()
     {
         $this->set = array();
     }
 
-    public function addValueToSet(...$values): void
+    /**
+     * @throws \Exception
+     */
+    public function addValueToSet(int $value): void
     {
-        // TODO: Implement addValueToSet() method.
+        if ($this->checkIfValueExists($value))
+        {
+            throw new \Exception(
+                sprintf('Value %d exists in array', $value)
+            );
+        }
+
+        array_push($this->set, $value);
     }
 
-    public function checkIfValueExists(...$values): bool
+    public function checkIfValueExists(int $value): bool
     {
-        // TODO: Implement checkIfValueExists() method.
+        return in_array($value, $this->set);
     }
 }

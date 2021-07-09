@@ -7,20 +7,38 @@ require_once __DIR__ . '/SetInterface.php';
 
 class AdvancedSet implements SetInterface
 {
-    public array $set;
+    private array $set;
 
     public function __construct()
     {
         $this->set = [];
     }
 
-    public function addValueToSet(...$values): void
+    /**
+     * @throws \Exception
+     */
+    public function addValueToSet(int $value): void
     {
-        // TODO: Implement addValueToSet() method.
+        if ($this->checkIfValueExists($value))
+        {
+            throw new \Exception(
+                sprintf('Value %d exists in array', $value)
+            );
+        }
+
+        $this->set[] = $value;
     }
 
-    public function checkIfValueExists(...$values): bool
+    public function checkIfValueExists(int $value): bool
     {
-        // TODO: Implement checkIfValueExists() method.
+        foreach ($this->set as $setElement)
+        {
+            if ($setElement == $value)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
