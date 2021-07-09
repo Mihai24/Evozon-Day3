@@ -32,8 +32,8 @@ class AdvancedStack implements StackInterface
             throw new \Exception('The stack is empty.');
         }
 
-        $stackLastValue = sizeof($this->stack) - 1;
-        unset($this->stack[$stackLastValue]);
+        $stackLastElement = end($this->stack);
+        unset($this->stack[key($stackLastElement)]);
 
         return array_values($this->stack);
     }
