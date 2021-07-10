@@ -19,8 +19,7 @@ class AdvancedSet implements SetInterface
      */
     public function addValueToSet(int $value): void
     {
-        if ($this->checkIfValueExists($value))
-        {
+        if ($this->checkIfValueExists($value)) {
             throw new \Exception(
                 sprintf('Value %d exists in array', $value)
             );
@@ -40,5 +39,15 @@ class AdvancedSet implements SetInterface
         }
 
         return false;
+    }
+
+    public function setIntersection(SetInterface $set): SetInterface
+    {
+        // TODO: Implement setIntersection() method.
+    }
+
+    public function setReUnion(SetInterface $set): SetInterface
+    {
+        // TODO: Implement setReUnion() method.
     }
 }

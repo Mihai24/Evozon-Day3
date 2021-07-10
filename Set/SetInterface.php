@@ -10,7 +10,7 @@ interface SetInterface
 
     public function checkIfValueExists(int $value): bool;
 
-//    public function setIntersection();
-//
-//    public function setUnion();
+    public function setIntersection(SetInterface $set): SetInterface;
+
+    public function setReUnion(SetInterface $set): SetInterface;
 }
