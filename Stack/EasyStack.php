@@ -11,7 +11,7 @@ class EasyStack implements StackInterface
 
     public function __construct()
     {
-        $this->stack = array();
+        $this->stack = [];
     }
 
     public function push(...$values): void

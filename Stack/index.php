@@ -6,8 +6,8 @@ require_once __DIR__ . '/AdvancedStack.php';
 use Stack\AdvancedStack;
 use Stack\EasyStack;
 
-$stack = new EasyStack();
-//$stack = new AdvancedStack();
+//$stack = new EasyStack();
+$stack = new AdvancedStack();
 
 $stack->push(2, 5, 6, 7);
 $stack->push(4);

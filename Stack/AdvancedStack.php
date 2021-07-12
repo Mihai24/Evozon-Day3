@@ -32,10 +32,10 @@ class AdvancedStack implements StackInterface
             throw new \Exception('The stack is empty.');
         }
 
-        $stackLastElement = end($this->stack);
-        unset($this->stack[key($stackLastElement)]);
+        $stackLastElement = array_key_last($this->stack);
+        unset($this->stack[$stackLastElement]);
 
-        return array_values($this->stack);
+        return $stackLastElement;
     }
 
     public function isEmpty(): bool

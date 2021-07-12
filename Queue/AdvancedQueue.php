@@ -14,7 +14,7 @@ class AdvancedQueue implements QueueInterface
         $this->fifo = [];
     }
 
-    public function queue(int $value): void
+    public function queue($value): void
     {
         $this->fifo[] = $value;
     }
@@ -29,11 +29,10 @@ class AdvancedQueue implements QueueInterface
             throw new \Exception('The array is empty');
         }
 
-        reset($this->fifo);
-        $arrayFirstElement = key($this->fifo);
+        $arrayFirstElement = array_key_first($this->fifo);
         unset($this->fifo[$arrayFirstElement]);
 
-        return $this->fifo;
+        return $arrayFirstElement;
     }
 
     public function isEmpty(): bool

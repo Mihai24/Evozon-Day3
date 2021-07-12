@@ -11,10 +11,10 @@ class EasyQueue implements QueueInterface
 
     public function __construct()
     {
-        $this->fifo = array();
+        $this->fifo = [];
     }
 
-    public function queue(int $value): void
+    public function queue($value): void
     {
         array_push($this->fifo, $value);
     }
@@ -29,7 +29,7 @@ class EasyQueue implements QueueInterface
             throw new \Exception('The array is empty');
         }
 
-        array_shift($this->fifo);
+        return array_shift($this->fifo);
     }
 
     public function isEmpty(): bool

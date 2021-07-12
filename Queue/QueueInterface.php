@@ -6,7 +6,7 @@ namespace Queue;
 
 interface QueueInterface
 {
-    public function queue(int $value): void;
+    public function queue($value): void;
 
     public function dequeue();
 
